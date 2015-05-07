@@ -15,3 +15,12 @@ library_careful <- function (packname, silent = TRUE) {
   else 
     do_it()
 }
+
+# detach a package if it's  attached, without throwing an error if it isn't
+detach_careful <- function (packname) {
+  packsearch <- paste0 ("package:", packname)
+  if( packsearch %in% search ()) {
+    message ("detaching ", packname)
+    detach (packsearch, unload  = TRUE, character.only = TRUE)
+  }
+}
