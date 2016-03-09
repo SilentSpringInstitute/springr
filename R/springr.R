@@ -24,3 +24,23 @@ detach_careful <- function (packname) {
     detach (packsearch, unload  = TRUE, character.only = TRUE)
   }
 }
+
+mean.geometric <- function (x, na.rm = FALSE){
+    if ( na.rm) x <- x [! is.na( x)]
+    return (exp (mean (log (x))))
+}
+    
+percent_difference <- function(initial,final)
+    return (100*(final-initial)/initial)
+    
+percentage <- function (part,  total, rounded = TRUE){
+    x<-100*part/total
+    if (rounded)
+      x<- round (x, 0) 
+    return (x)
+    }
+
+cv <- function (x, na.rm = FALSE) {
+  if ( na.rm) x <- x [! is.na( x)]
+  sd (x)/mean (x)
+}
